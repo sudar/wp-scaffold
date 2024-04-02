@@ -7,10 +7,12 @@
 
 namespace TenUpPlugin\PostTypes;
 
+use TenUpPlugin\Module;
+
 /**
  * Post Post type.
  */
-class Post extends \TenUpPlugin\Module {
+class Post extends Module {
 
 	/**
 	 * Can the class be registered?
