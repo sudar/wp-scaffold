@@ -11,6 +11,31 @@ use TenUpPlugin\Module;
 
 /**
  * Abstract class for post types.
+ *
+ *  Usage:
+ *
+ *  class FooPostType extends AbstractPostType {
+ *
+ *      public function get_name() {
+ *          return 'custom-post-type';
+ *      }
+ *
+ *      public function get_singular_label() {
+ *          return 'Custom Post'
+ *      }
+ *
+ *      public function get_plural_label() {
+ *          return 'Custom Posts';
+ *      }
+ *
+ *      public function get_menu_icon() {
+ *          return 'embed-post';
+ *      }
+ *
+ *      public function can_register() {
+ *          return true;
+ *      }
+ *  }
  */
 abstract class AbstractPostType extends Module {
 
