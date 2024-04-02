@@ -113,7 +113,7 @@ abstract class AbstractPostType extends Module {
 	 * @return array
 	 */
 	public function get_options() {
-		$options = [
+		return [
 			'labels'            => $this->get_labels(),
 			'public'            => true,
 			'has_archive'       => true,
@@ -126,8 +126,6 @@ abstract class AbstractPostType extends Module {
 			'menu_position'     => $this->get_menu_position(),
 			'hierarchical'      => $this->is_hierarchical(),
 		];
-
-		return $options;
 	}
 
 	/**
@@ -140,7 +138,7 @@ abstract class AbstractPostType extends Module {
 		$singular_label = $this->get_singular_label();
 
 		// phpcs:disable -- ignoring template strings without translators placeholder since this is dynamic
-		$labels = array(
+		$labels = [
 			'name'                     => $plural_label,
 			// Already translated via get_plural_label().
 			'singular_name'            => $singular_label,
@@ -169,7 +167,7 @@ abstract class AbstractPostType extends Module {
 			'item_updated'             => sprintf( __( '%s updated.', 'tenup-plugin' ), $singular_label ),
 			'menu_name'                => $plural_label,
 			'name_admin_bar'           => $singular_label,
-		);
+		];
 		// phpcs:enable
 
 		return $labels;

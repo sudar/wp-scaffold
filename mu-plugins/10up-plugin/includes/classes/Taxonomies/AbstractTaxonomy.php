@@ -98,7 +98,7 @@ abstract class AbstractTaxonomy extends Module {
 	 * @return array
 	 */
 	public function get_options() {
-		return array(
+		return [
 			'labels'            => $this->get_labels(),
 			'hierarchical'      => $this->is_hierarchical(),
 			'show_ui'           => true,
@@ -106,7 +106,7 @@ abstract class AbstractTaxonomy extends Module {
 			'query_var'         => true,
 			'show_in_rest'      => true,
 			'public'            => true,
-		);
+		];
 	}
 
 	/**
@@ -119,7 +119,7 @@ abstract class AbstractTaxonomy extends Module {
 		$singular_label = $this->get_singular_label();
 
 		// phpcs:disable
-		$labels = array(
+		$labels = [
 			'name'                       => $plural_label, // Already translated via get_plural_label().
 			'singular_name'              => $singular_label, // Already translated via get_singular_label().
 			'search_items'               => sprintf( __( 'Search %s', 'tenup-plugin' ), $plural_label ),
@@ -135,7 +135,7 @@ abstract class AbstractTaxonomy extends Module {
 			'not_found'                  => sprintf( __( 'No %s found.', 'tenup-plugin' ), strtolower( $plural_label ) ),
 			'not_found_in_trash'         => sprintf( __( 'No %s found in Trash.', 'tenup-plugin' ), strtolower( $plural_label ) ),
 			'view_item'                  => sprintf( __( 'View %s', 'tenup-plugin' ), $singular_label ),
-		);
+		];
 		// phpcs:enable
 
 		return $labels;
