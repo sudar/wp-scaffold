@@ -7,8 +7,6 @@
 
 namespace TenUpPlugin\PostTypes;
 
-use TenUpPlugin\Module;
-
 /**
  * Page Post Type
  *
