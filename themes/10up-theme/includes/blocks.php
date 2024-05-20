@@ -21,6 +21,8 @@ function setup() {
 
 	add_action( 'enqueue_block_editor_assets', $n( 'blocks_editor_styles' ) );
 
+	add_action( 'init', $n( 'enqueue_block_specific_styles' ) );
+
 	add_action( 'init', $n( 'register_theme_blocks' ) );
 
 	add_action( 'init', $n( 'register_block_pattern_categories' ) );
@@ -124,6 +126,52 @@ function blocks_editor_styles() {
 			Utility\get_asset_info( 'editor-style-overrides', 'dependencies' ),
 			Utility\get_asset_info( 'editor-style-overrides', 'version' ),
 			true
+		);
+	}
+}
+
+
+/**
+ * Enqueue block specific styles.
+ *
+ * This function is used to enqueue styles that are specific to a block. It
+ * first gets all the CSS files in the 'blocks/autoenqueue' directory. Then
+ * for each stylesheet, it determines the block type by removing the directory
+ * path and '.css' from the stylesheet path. It then tries to get the asset
+ * file for the block type. If the asset file doesn't exist, it creates a new
+ * one with the version set to the file modification time of the stylesheet
+ * and no dependencies. Finally, it enqueues the block style using the block
+ * type, the URL to the stylesheet, the path to the stylesheet, the version
+ * from the asset file, and the dependencies from the asset file.
+ *
+ * @return void
+ */
+function enqueue_block_specific_styles() {
+	$stylesheets = glob( TENUP_THEME_DIST_PATH . '/blocks/autoenqueue/*.css' );
+
+	foreach ( $stylesheets as $stylesheet_path ) {
+		$block_type = str_replace( TENUP_THEME_DIST_PATH . '/blocks/autoenqueue/', '', $stylesheet_path );
+		$block_type = str_replace( '.css', '', $block_type );
+		$asset_file = TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/' . $block_type . '.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			$asset_file = require $asset_file;
+		} else {
+			$asset_file = [
+				'version'      => filemtime( $stylesheet_path ),
+				'dependencies' => [],
+			];
+		}
+
+		wp_enqueue_block_style(
+			$block_type,
+			[
+				'handle'       => "{$block_type}",
+				'src'          => TENUP_THEME_DIST_URL . 'blocks/autoenqueue/' . $block_type . '.css',
+				'path'         => $stylesheet_path,
+				'version'      => $asset_file['version'],
+				'dependencies' => $asset_file['dependencies'],
+			]
 		);
 	}
 }
