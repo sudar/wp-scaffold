@@ -11,7 +11,7 @@ It contains a bare bones theme and must use plugin for you to base your developm
 
 ## How to Use
 
-*The best way to use the scaffold is to run `10up-toolkit project init`. To do this, install [10up Toolkit](https://www.npmjs.com/package/10up-toolkit) as a global npm package.*
+*The best way to use the scaffold is to simply run `npx 10up-toolkit project init` in your terminal.*
 
 You can also use the scaffold manually by doing the following:
 
