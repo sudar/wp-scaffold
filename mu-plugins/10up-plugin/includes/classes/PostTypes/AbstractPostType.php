@@ -143,6 +143,7 @@ abstract class AbstractPostType extends Module {
 			// Already translated via get_plural_label().
 			'singular_name'            => $singular_label,
 			// Already translated via get_singular_label().
+			'add_new'                  => sprintf( __( 'Add New %s', 'tenup-plugin' ), $singular_label ),
 			'add_new_item'             => sprintf( __( 'Add New %s', 'tenup-plugin' ), $singular_label ),
 			'edit_item'                => sprintf( __( 'Edit %s', 'tenup-plugin' ), $singular_label ),
 			'new_item'                 => sprintf( __( 'New %s', 'tenup-plugin' ), $singular_label ),
