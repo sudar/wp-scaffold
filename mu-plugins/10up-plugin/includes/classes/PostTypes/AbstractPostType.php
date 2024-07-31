@@ -137,7 +137,7 @@ abstract class AbstractPostType extends Module {
 		$plural_label   = $this->get_plural_label();
 		$singular_label = $this->get_singular_label();
 
-		// phpcs:disable -- ignoring template strings without translators placeholder since this is dynamic
+		// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment -- ignoring template strings without translators placeholder since this is dynamic
 		$labels = [
 			'name'                     => $plural_label,
 			// Already translated via get_plural_label().
@@ -169,7 +169,7 @@ abstract class AbstractPostType extends Module {
 			'menu_name'                => $plural_label,
 			'name_admin_bar'           => $singular_label,
 		];
-		// phpcs:enable
+		// phpcs:enable WordPress.WP.I18n.MissingTranslatorsComment
 
 		return $labels;
 	}
