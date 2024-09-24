@@ -23,6 +23,7 @@
   },
   "10up-toolkit": {
     "useBlockAssets": true,
+    "loadBlockSpecificStyles": true,
     "entry": {
       "admin": "./assets/js/admin/admin.js",
       "editor-style-overrides": "./assets/js/admin/editor-style-overrides.js",
