@@ -166,10 +166,10 @@ function enqueue_block_specific_styles() {
 		[$block_namespace, $block_name] = explode( '/', $block_type );
 
 		wp_register_style(
-				"tenup-theme-{$block_namespace}-{$block_name}",
-				TENUP_THEME_DIST_URL . 'blocks/autoenqueue/' . $block_type . '.css',
-				$asset_file['version'],
-				$asset_file['dependencies'],
+			"tenup-theme-{$block_namespace}-{$block_name}",
+			TENUP_THEME_DIST_URL . 'blocks/autoenqueue/' . $block_type . '.css',
+			$asset_file['version'],
+			$asset_file['dependencies'],
 		);
 
 		wp_enqueue_block_style(
