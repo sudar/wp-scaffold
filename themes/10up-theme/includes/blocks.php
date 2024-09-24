@@ -147,10 +147,10 @@ function blocks_editor_styles() {
  * @return void
  */
 function enqueue_block_specific_styles() {
-	$stylesheets = glob( TENUP_THEME_DIST_PATH . '/blocks/autoenqueue/*.css' );
+	$stylesheets = glob( TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/**/*.css' );
 
 	foreach ( $stylesheets as $stylesheet_path ) {
-		$block_type = str_replace( TENUP_THEME_DIST_PATH . '/blocks/autoenqueue/', '', $stylesheet_path );
+		$block_type = str_replace( TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/', '', $stylesheet_path );
 		$block_type = str_replace( '.css', '', $block_type );
 		$asset_file = TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/' . $block_type . '.asset.php';
 
