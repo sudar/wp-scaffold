@@ -58,8 +58,8 @@ function register_theme_blocks() {
 			}
 
 			register_block_type_from_metadata( $block_folder, $block_options );
-		};
-	};
+		}
+	}
 }
 
 /**
