@@ -11,6 +11,10 @@ It contains a bare bones theme and must use plugin for you to base your developm
 
 ## How to Use
 
+*The best way to use the scaffold is to simply run `npx 10up-toolkit project init` in your terminal.*
+
+You can also use the scaffold manually by doing the following:
+
 1. [Download a zip](https://github.com/10up/wp-scaffold/archive/trunk.zip) of the repository into your project. At 10up, by default we version control the `wp-content` directory (ignoring obvious things like `uploads`). This enables us to have plugins, theme, etc. all in one repository. Having separate repositories for each plugin and theme only happens in rare circumstances that are outside of our control.
 2. Take what you need. If your project doesn't have a theme, remove the theme. If your project doesn't need any plugin functionality, remove the MU plugin. If your plugin doesn't need CSS/JS, remove it. If your plugin doesn't need to be translated, remove all the translation functionality.
 3. Compiling, minifying, bundling, etc. of JavaScript and CSS is all done by [10up Toolkit](https://github.com/10up/10up-toolkit). 10up Toolkit is included as a dev dependency in both the plugin and theme. If you want to develop on the theme (and vice-versa the plugin), you would navigate to the theme directory in your console and run `npm run start` (after running `npm install` first of course). Inside `package.json` edit `10up-toolkit.devURL` to your local development URL for if you're not using a `.test`. `10up-toolkit.entry` are the paths to CSS/JS files that need to be bundled. Edit these as needed.
