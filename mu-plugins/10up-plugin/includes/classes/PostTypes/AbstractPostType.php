@@ -137,12 +137,13 @@ abstract class AbstractPostType extends Module {
 		$plural_label   = $this->get_plural_label();
 		$singular_label = $this->get_singular_label();
 
-		// phpcs:disable -- ignoring template strings without translators placeholder since this is dynamic
+		// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment -- ignoring template strings without translators placeholder since this is dynamic
 		$labels = [
 			'name'                     => $plural_label,
 			// Already translated via get_plural_label().
 			'singular_name'            => $singular_label,
 			// Already translated via get_singular_label().
+			'add_new'                  => sprintf( __( 'Add New %s', 'tenup-plugin' ), $singular_label ),
 			'add_new_item'             => sprintf( __( 'Add New %s', 'tenup-plugin' ), $singular_label ),
 			'edit_item'                => sprintf( __( 'Edit %s', 'tenup-plugin' ), $singular_label ),
 			'new_item'                 => sprintf( __( 'New %s', 'tenup-plugin' ), $singular_label ),
@@ -168,7 +169,7 @@ abstract class AbstractPostType extends Module {
 			'menu_name'                => $plural_label,
 			'name_admin_bar'           => $singular_label,
 		];
-		// phpcs:enable
+		// phpcs:enable WordPress.WP.I18n.MissingTranslatorsComment
 
 		return $labels;
 	}
