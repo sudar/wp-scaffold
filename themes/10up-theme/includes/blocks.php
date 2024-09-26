@@ -132,8 +132,8 @@ function enqueue_block_specific_styles() {
 		wp_enqueue_block_style(
 			$block_type,
 			[
-				'handle'       => "tenup-theme-{$block_namespace}-{$block_name}",
-				'path'         => $stylesheet_path,
+				'handle' => "tenup-theme-{$block_namespace}-{$block_name}",
+				'path'   => $stylesheet_path,
 			]
 		);
 	}
