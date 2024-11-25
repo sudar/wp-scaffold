@@ -15,14 +15,10 @@ use TenUpTheme\Utility;
  * @return void
  */
 function setup() {
-	$n = function ( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'enqueue_block_editor_assets', $n( 'blocks_editor_styles' ) );
-	add_action( 'init', $n( 'enqueue_block_specific_styles' ) );
-	add_action( 'init', $n( 'register_theme_blocks' ) );
-	add_action( 'init', $n( 'register_block_pattern_categories' ) );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\blocks_editor_styles' );
+	add_action( 'init', __NAMESPACE__ . '\\enqueue_block_specific_styles' );
+	add_action( 'init', __NAMESPACE__ . '\\register_theme_blocks' );
+	add_action( 'init', __NAMESPACE__ . '\\register_block_pattern_categories' );
 }
 
 /**

@@ -18,21 +18,17 @@ use TenUpPlugin\Utility;
  * @return void
  */
 function setup() {
-	$n = function ( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'init', $n( 'i18n' ) );
-	add_action( 'init', $n( 'init' ), apply_filters( 'tenup_plugin_init_priority', 8 ) );
-	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
-	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
+	add_action( 'init', __NAMESPACE__ . '\\i18n' );
+	add_action( 'init', __NAMESPACE__ . '\\init', apply_filters( 'tenup_plugin_init_priority', 8 ) );
+	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\scripts' );
+	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\styles' );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_scripts' );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles' );
 
 	// Editor styles. add_editor_style() doesn't work outside of a theme.
-	add_filter( 'mce_css', $n( 'mce_css' ) );
+	add_filter( 'mce_css', __NAMESPACE__ . '\\mce_css' );
 	// Hook to allow async or defer on asset loading.
-	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
+	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\script_loader_tag', 10, 2 );
 
 	do_action( 'tenup_plugin_loaded' );
 }
