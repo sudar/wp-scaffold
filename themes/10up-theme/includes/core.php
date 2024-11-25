@@ -16,18 +16,18 @@ use TenUpTheme\Utility;
  * @return void
  */
 function setup() {
-	add_action( 'init', __NAMESPACE__ . '\\init', apply_filters( 'tenup_theme_init_priority', 8 ) );
-	add_action( 'after_setup_theme', __NAMESPACE__ . '\\i18n' );
-	add_action( 'after_setup_theme', __NAMESPACE__ . '\\theme_setup' );
-	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\scripts' );
-	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles' );
-	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_scripts' );
-	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_scripts' );
-	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\styles' );
-	add_action( 'wp_head', __NAMESPACE__ . '\\js_detection', 0 );
-	add_action( 'wp_head', __NAMESPACE__ . '\\embed_ct_css', 0 );
+	add_action( 'init', 'TenUpTheme\Core\init', apply_filters( 'tenup_theme_init_priority', 8 ) );
+	add_action( 'after_setup_theme', 'TenUpTheme\Core\i18n' );
+	add_action( 'after_setup_theme', 'TenUpTheme\Core\theme_setup' );
+	add_action( 'wp_enqueue_scripts', 'TenUpTheme\Core\scripts' );
+	add_action( 'admin_enqueue_scripts', 'TenUpTheme\Core\admin_styles' );
+	add_action( 'admin_enqueue_scripts', 'TenUpTheme\Core\admin_scripts' );
+	add_action( 'enqueue_block_editor_assets', 'TenUpTheme\Core\enqueue_block_editor_scripts' );
+	add_action( 'wp_enqueue_scripts', 'TenUpTheme\Core\styles' );
+	add_action( 'wp_head', 'TenUpTheme\Core\js_detection', 0 );
+	add_action( 'wp_head', 'TenUpTheme\Core\embed_ct_css', 0 );
 
-	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\script_loader_tag', 10, 2 );
+	add_filter( 'script_loader_tag', 'TenUpTheme\Core\script_loader_tag', 10, 2 );
 }
 
 /**

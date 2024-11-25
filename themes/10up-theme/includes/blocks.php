@@ -16,9 +16,9 @@ use TenUpTheme\Utility;
  */
 function setup() {
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\blocks_editor_styles' );
-	add_action( 'init', __NAMESPACE__ . '\\enqueue_block_specific_styles' );
-	add_action( 'init', __NAMESPACE__ . '\\register_theme_blocks' );
-	add_action( 'init', __NAMESPACE__ . '\\register_block_pattern_categories' );
+	add_action( 'init', 'TenUpTheme\Blocks\enqueue_block_specific_styles' );
+	add_action( 'init', 'TenUpTheme\Blocks\register_theme_blocks' );
+	add_action( 'init', 'TenUpTheme\Blocks\register_block_pattern_categories' );
 }
 
 /**

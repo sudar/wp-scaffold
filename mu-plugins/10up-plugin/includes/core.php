@@ -26,9 +26,9 @@ function setup() {
 	add_action( 'admin_enqueue_scripts', 'TenUpPlugin\Core\admin_styles' );
 
 	// Editor styles. add_editor_style() doesn't work outside of a theme.
-	add_filter( 'mce_css', __NAMESPACE__ . '\\mce_css' );
+	add_filter( 'mce_css', 'TenUpPlugin\Core\mce_css' );
 	// Hook to allow async or defer on asset loading.
-	add_filter( 'script_loader_tag', __NAMESPACE__ . '\\script_loader_tag', 10, 2 );
+	add_filter( 'script_loader_tag', 'TenUpPlugin\Core\script_loader_tag', 10, 2 );
 
 	do_action( 'tenup_plugin_loaded' );
 }
