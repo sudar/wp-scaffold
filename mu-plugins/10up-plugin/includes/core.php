@@ -18,12 +18,12 @@ use TenUpPlugin\Utility;
  * @return void
  */
 function setup() {
-	add_action( 'init', __NAMESPACE__ . '\\i18n' );
-	add_action( 'init', __NAMESPACE__ . '\\init', apply_filters( 'tenup_plugin_init_priority', 8 ) );
-	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\scripts' );
-	add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\styles' );
-	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_scripts' );
-	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles' );
+	add_action( 'init', 'TenUpPlugin\Core\i18n' );
+	add_action( 'init', 'TenUpPlugin\Core\init', apply_filters( 'tenup_plugin_init_priority', 8 ) );
+	add_action( 'wp_enqueue_scripts', 'TenUpPlugin\Core\scripts' );
+	add_action( 'wp_enqueue_scripts', 'TenUpPlugin\Core\styles' );
+	add_action( 'admin_enqueue_scripts', 'TenUpPlugin\Core\admin_scripts' );
+	add_action( 'admin_enqueue_scripts', 'TenUpPlugin\Core\admin_styles' );
 
 	// Editor styles. add_editor_style() doesn't work outside of a theme.
 	add_filter( 'mce_css', __NAMESPACE__ . '\\mce_css' );
