@@ -1,0 +1,14 @@
+{
+  "name": "10up/wp-ignition",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "10up",
+      "email": "info@10up.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "spatie/ignition": "^1.15"
+  }
+}
