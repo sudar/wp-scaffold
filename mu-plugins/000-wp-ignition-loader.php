@@ -16,7 +16,7 @@
  */
 
 // Don't load in production.
-if ( 'production' === wp_get_environment_type() )  {
+if ( 'production' === wp_get_environment_type() ) {
 	return;
 }
 
