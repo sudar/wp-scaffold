@@ -17,7 +17,8 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
+// Register Ignition
 \Spatie\Ignition\Ignition::make()
 	->setTheme( 'dark' )
-	->shouldDisplayException( 'production' !== wp_get_environment_type() ) // Ensure it's disabled in production
+	->shouldDisplayException( 'production' !== wp_get_environment_type() && true === WP_DEBUG )
 	->register();

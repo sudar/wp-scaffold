@@ -15,8 +15,8 @@
  * @package WP_Ignition
  */
 
-// Don't load in production.
-if ( 'production' === wp_get_environment_type() ) {
+// Don't load in production or if WP_DEBUG is disabled.
+if ( 'production' !== wp_get_environment_type() || false === WP_DEBUG ) {
 	return;
 }
 
