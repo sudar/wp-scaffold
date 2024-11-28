@@ -16,7 +16,7 @@
  */
 
 // Don't load in production or if WP_DEBUG is disabled.
-if ( 'production' !== wp_get_environment_type() || false === WP_DEBUG ) {
+if ( 'production' === wp_get_environment_type() || false === WP_DEBUG ) {
 	return;
 }
 
