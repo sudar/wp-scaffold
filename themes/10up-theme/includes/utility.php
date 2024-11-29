@@ -41,7 +41,7 @@ function get_asset_info( $slug, $attribute = null ) {
  *
  * @param string $path the path to your CSS variables file
  *
- * @return array
+ * @return array<string>
  */
 function get_colors( $path ) {
 

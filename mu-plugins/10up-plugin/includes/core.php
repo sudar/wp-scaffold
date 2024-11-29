@@ -96,7 +96,7 @@ function deactivate() {
 /**
  * The list of knows contexts for enqueuing scripts/styles.
  *
- * @return array
+ * @return array<string>
  */
 function get_enqueue_contexts() {
 	return [ 'admin', 'frontend', 'shared' ];

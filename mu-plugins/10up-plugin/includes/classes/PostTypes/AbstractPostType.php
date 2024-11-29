@@ -92,7 +92,7 @@ abstract class AbstractPostType extends Module {
 	/**
 	 * Default post type supported feature names.
 	 *
-	 * @return array
+	 * @return array<string>
 	 */
 	public function get_editor_supports() {
 		$supports = [
@@ -110,7 +110,7 @@ abstract class AbstractPostType extends Module {
 	/**
 	 * Get the options for the post type.
 	 *
-	 * @return array
+	 * @return array<mixed>
 	 */
 	public function get_options() {
 		return [
@@ -131,7 +131,7 @@ abstract class AbstractPostType extends Module {
 	/**
 	 * Get the labels for the post type.
 	 *
-	 * @return array
+	 * @return array<string>
 	 */
 	public function get_labels() {
 		$plural_label   = $this->get_plural_label();
@@ -225,7 +225,7 @@ abstract class AbstractPostType extends Module {
 	 * Returns the default supported taxonomies. The subclass should declare the
 	 * Taxonomies that it supports here if required.
 	 *
-	 * @return array
+	 * @return array<string>
 	 */
 	public function get_supported_taxonomies() {
 		return [];
