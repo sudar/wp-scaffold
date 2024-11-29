@@ -52,6 +52,7 @@ class ModuleInitialization {
 
 	/**
 	 * Get all the TenUpPlugin plugin classes.
+	 *
 	 * @return array<string>
 	 */
 	protected function get_classes() {
