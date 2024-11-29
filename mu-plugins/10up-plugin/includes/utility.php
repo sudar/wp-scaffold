@@ -26,7 +26,10 @@ function get_asset_info( $slug, $attribute = null ) {
 	} elseif ( file_exists( TENUP_PLUGIN_PATH . 'dist/css/' . $slug . '.asset.php' ) ) {
 		$asset = require TENUP_PLUGIN_PATH . 'dist/css/' . $slug . '.asset.php';
 	} else {
-		$asset = [ 'version' => TENUP_PLUGIN_VERSION, 'dependencies' => [] ];
+		$asset = [
+			'version'      => TENUP_PLUGIN_VERSION,
+			'dependencies' => [],
+		];
 	}
 
 	// @var <array{version: string, dependencies: array<string>}> $asset

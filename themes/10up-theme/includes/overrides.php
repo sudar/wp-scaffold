@@ -68,8 +68,8 @@ function disable_emojis_tinymce( $plugins ) {
  *
  * @link https://developer.wordpress.org/reference/hooks/emoji_svg_url/
  *
- * @param  array<string>  $urls          URLs to print for resource hints.
- * @param  string $relation_type The relation type the URLs are printed for.
+ * @param  array<string> $urls          URLs to print for resource hints.
+ * @param  string        $relation_type The relation type the URLs are printed for.
  * @return array<string>                 Difference betwen the two arrays.
  */
 function disable_emoji_dns_prefetch( $urls, $relation_type ) {

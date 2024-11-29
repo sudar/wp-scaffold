@@ -108,6 +108,8 @@ function get_enqueue_contexts() {
  * @param string $script Script file name (no .js extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
  *
+ * @throws \RuntimeException If an invalid $context is specified.
+ *
  * @return string URL
  */
 function script_url( $script, $context ) {
@@ -124,6 +126,8 @@ function script_url( $script, $context ) {
  *
  * @param string $stylesheet Stylesheet file name (no .css extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
+ *
+ * @throws \RuntimeException If an invalid $context is specified.
  *
  * @return string URL
  */
@@ -269,7 +273,7 @@ function script_loader_tag( $tag, $handle ) {
 	}
 
 	if ( 'async' !== $script_execution && 'defer' !== $script_execution ) {
-		return $tag; // _doing_it_wrong()?
+		return $tag;
 	}
 
 	// Abort adding async/defer for scripts that have this script as a dependency. _doing_it_wrong()?

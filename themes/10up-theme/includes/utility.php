@@ -26,7 +26,10 @@ function get_asset_info( $slug, $attribute = null ) {
 	} elseif ( file_exists( TENUP_THEME_PATH . 'dist/css/' . $slug . '.asset.php' ) ) {
 		$asset = require TENUP_THEME_PATH . 'dist/css/' . $slug . '.asset.php';
 	} else {
-		$asset = [ 'version' => TENUP_THEME_VERSION, 'dependencies' => [] ];
+		$asset = [
+			'version'      => TENUP_THEME_VERSION,
+			'dependencies' => [],
+		];
 	}
 
 	if ( ! empty( $attribute ) && isset( $asset[ $attribute ] ) ) {
@@ -40,6 +43,8 @@ function get_asset_info( $slug, $attribute = null ) {
  * Extract colors from a CSS or Sass file
  *
  * @param string $path the path to your CSS variables file
+ *
+ * @throws \RuntimeException If the file is not found or could not be read
  *
  * @return array<string>
  */
