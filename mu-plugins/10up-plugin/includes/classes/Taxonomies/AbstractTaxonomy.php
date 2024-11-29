@@ -145,10 +145,10 @@ abstract class AbstractTaxonomy extends Module {
 	 * Setting the post types to null to ensure no post type is registered with
 	 * this taxonomy. Post Type classes declare their supported taxonomies.
 	 *
-	 * @return array|null
+	 * @return array
 	 */
 	public function get_post_types() {
-		return null;
+		return [];
 	}
 
 	/**

@@ -108,12 +108,12 @@ function get_enqueue_contexts() {
  * @param string $script Script file name (no .js extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
  *
- * @return string|WP_Error URL
+ * @return string URL
  */
 function script_url( $script, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in TenUpPlugin script loader.' );
+		throw new \RuntimeException( 'Invalid $context specified in TenUpPlugin script loader.' );
 	}
 
 	return TENUP_PLUGIN_URL . "dist/js/{$script}.js";
@@ -130,7 +130,7 @@ function script_url( $script, $context ) {
 function style_url( $stylesheet, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in TenUpPlugin stylesheet loader.' );
+		throw new \RuntimeException( 'Invalid $context specified in TenUpPlugin stylesheet loader.' );
 	}
 
 	return TENUP_PLUGIN_URL . "dist/css/{$stylesheet}.css";
@@ -259,7 +259,7 @@ function mce_css( $stylesheets ) {
  * @link https://core.trac.wordpress.org/ticket/12009
  * @param string $tag    The script tag.
  * @param string $handle The script handle.
- * @return string
+ * @return string|null
  */
 function script_loader_tag( $tag, $handle ) {
 	$script_execution = wp_scripts()->get_data( $handle, 'script_execution' );

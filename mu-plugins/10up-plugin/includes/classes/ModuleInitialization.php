@@ -94,6 +94,10 @@ class ModuleInitialization {
 			// Initialize the class.
 			$instantiated_class = new $class();
 
+			if ( ! $instantiated_class instanceof Module ) {
+				continue;
+			}
+
 			// Assign the classes into the order they should be initialized.
 			$load_class_order[ intval( $instantiated_class->load_order ) ][] = [
 				'slug'  => $slug,
