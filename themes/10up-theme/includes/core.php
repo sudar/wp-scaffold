@@ -72,6 +72,8 @@ function i18n() {
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @return void
  */
 function theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
@@ -258,7 +260,7 @@ function js_detection() {
  * @link https://core.trac.wordpress.org/ticket/12009
  * @param string $tag    The script tag.
  * @param string $handle The script handle.
- * @return string
+ * @return string|null
  */
 function script_loader_tag( $tag, $handle ) {
 	$script_execution = wp_scripts()->get_data( $handle, 'script_execution' );
@@ -301,7 +303,7 @@ function script_loader_tag( $tag, $handle ) {
  */
 function embed_ct_css() {
 
-	$debug_performance = rest_sanitize_boolean( filter_input( INPUT_GET, 'debug_perf', FILTER_SANITIZE_NUMBER_INT ) );
+	$debug_performance = rest_sanitize_boolean( boolval( filter_input( INPUT_GET, 'debug_perf', FILTER_SANITIZE_NUMBER_INT ) ) );
 
 	if ( ! $debug_performance ) {
 		return;

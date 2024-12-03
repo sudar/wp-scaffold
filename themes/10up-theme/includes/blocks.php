@@ -31,6 +31,10 @@ function register_theme_blocks() {
 	if ( file_exists( TENUP_THEME_BLOCK_DIST_DIR ) ) {
 		$block_json_files = glob( TENUP_THEME_BLOCK_DIST_DIR . '*/block.json' );
 
+		if ( empty( $block_json_files ) ) {
+			return;
+		}
+
 		// auto register all blocks that were found.
 		foreach ( $block_json_files as $filename ) {
 
@@ -101,6 +105,10 @@ function blocks_editor_styles() {
  */
 function enqueue_block_specific_styles() {
 	$stylesheets = glob( TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/**/*.css' );
+
+	if ( empty( $stylesheets ) ) {
+		return;
+	}
 
 	foreach ( $stylesheets as $stylesheet_path ) {
 		$block_type = str_replace( TENUP_THEME_DIST_PATH . 'blocks/autoenqueue/', '', $stylesheet_path );
