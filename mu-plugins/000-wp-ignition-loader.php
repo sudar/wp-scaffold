@@ -8,7 +8,7 @@
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wp-ignition
- * Update URI:        https://yourwebsite.com/wp-ignition
+ * Update URI:        false
  * Requires at least: 5.0
  * Requires PHP:      8.0
  *

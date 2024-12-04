@@ -1,6 +1,6 @@
 {
   "name": "10up/wp-ignition",
-  "type": "wordpress-plugin",
+  "type": "wordpress-muplugin",
   "authors": [
     {
       "name": "10up",
