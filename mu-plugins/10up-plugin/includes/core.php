@@ -96,7 +96,7 @@ function deactivate() {
 /**
  * The list of knows contexts for enqueuing scripts/styles.
  *
- * @return array
+ * @return array<string>
  */
 function get_enqueue_contexts() {
 	return [ 'admin', 'frontend', 'shared' ];
@@ -108,12 +108,14 @@ function get_enqueue_contexts() {
  * @param string $script Script file name (no .js extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
  *
- * @return string|WP_Error URL
+ * @throws \RuntimeException If an invalid $context is specified.
+ *
+ * @return string URL
  */
 function script_url( $script, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in TenUpPlugin script loader.' );
+		throw new \RuntimeException( 'Invalid $context specified in TenUpPlugin script loader.' );
 	}
 
 	return TENUP_PLUGIN_URL . "dist/js/{$script}.js";
@@ -125,12 +127,14 @@ function script_url( $script, $context ) {
  * @param string $stylesheet Stylesheet file name (no .css extension)
  * @param string $context Context for the script ('admin', 'frontend', or 'shared')
  *
+ * @throws \RuntimeException If an invalid $context is specified.
+ *
  * @return string URL
  */
 function style_url( $stylesheet, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in TenUpPlugin stylesheet loader.' );
+		throw new \RuntimeException( 'Invalid $context specified in TenUpPlugin stylesheet loader.' );
 	}
 
 	return TENUP_PLUGIN_URL . "dist/css/{$stylesheet}.css";
@@ -259,7 +263,7 @@ function mce_css( $stylesheets ) {
  * @link https://core.trac.wordpress.org/ticket/12009
  * @param string $tag    The script tag.
  * @param string $handle The script handle.
- * @return string
+ * @return string|null
  */
 function script_loader_tag( $tag, $handle ) {
 	$script_execution = wp_scripts()->get_data( $handle, 'script_execution' );
@@ -269,7 +273,7 @@ function script_loader_tag( $tag, $handle ) {
 	}
 
 	if ( 'async' !== $script_execution && 'defer' !== $script_execution ) {
-		return $tag; // _doing_it_wrong()?
+		return $tag;
 	}
 
 	// Abort adding async/defer for scripts that have this script as a dependency. _doing_it_wrong()?

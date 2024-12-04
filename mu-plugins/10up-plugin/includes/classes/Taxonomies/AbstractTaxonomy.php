@@ -95,7 +95,7 @@ abstract class AbstractTaxonomy extends Module {
 	/**
 	 * Get the options for the taxonomy.
 	 *
-	 * @return array
+	 * @return array<mixed>
 	 */
 	public function get_options() {
 		return [
@@ -112,7 +112,7 @@ abstract class AbstractTaxonomy extends Module {
 	/**
 	 * Get the labels for the taxonomy.
 	 *
-	 * @return array
+	 * @return array<string>
 	 */
 	public function get_labels() {
 		$plural_label   = $this->get_plural_label();
@@ -145,10 +145,10 @@ abstract class AbstractTaxonomy extends Module {
 	 * Setting the post types to null to ensure no post type is registered with
 	 * this taxonomy. Post Type classes declare their supported taxonomies.
 	 *
-	 * @return array|null
+	 * @return array<string>
 	 */
 	public function get_post_types() {
-		return null;
+		return [];
 	}
 
 	/**
