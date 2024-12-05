@@ -30,7 +30,7 @@ jobs:
         run: composer validate --strict --working-dir=mu-plugins/10up-plugin
 
       - name: Validate Theme composer.json and composer.lock
-        run: composer validate --strict --working-dir=wp-content/themes/10up-theme
+        run: composer validate --strict --working-dir=themes/10up-theme
 
       - name: Cache Composer packages
         id: composer-cache
