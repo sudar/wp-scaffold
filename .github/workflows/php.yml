@@ -2,16 +2,15 @@ name: PHP Checks
 
 on:
   push:
-    branches: [ "trunk" ]
+    branches: ["trunk"]
   pull_request:
-    branches: [ "trunk" ]
+    branches: ["trunk"]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +19,7 @@ jobs:
       - name: Setup PHP with composer v2
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: "8.3"
           tools: composer:v2
 
       - name: Validate Root composer.json and composer.lock
