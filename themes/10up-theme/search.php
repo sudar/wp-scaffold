@@ -28,7 +28,7 @@ get_header(); ?>
 						the_post_thumbnail();
 					}
 
-					// @phpstan-ignore-next-lines
+					// @phpstan-ignore argument.type (s)
 					the_title( '<span itemprop="name"><a href="' . esc_url( get_permalink() ) . '" itemprop="url">', '</a></span>' );
 					?>
 					<div itemprop="description">

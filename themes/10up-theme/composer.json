@@ -1,5 +1,7 @@
 {
   "name": "10up/wp-theme",
+  "description": "The starting point for all 10up WordPress themes.",
+  "license": "MIT",
   "type": "wordpress-theme",
   "authors": [
     {

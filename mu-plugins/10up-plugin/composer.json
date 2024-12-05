@@ -1,5 +1,7 @@
 {
   "name": "10up/wp-plugin",
+  "description": "The starting point for all 10up WordPress plugins.",
+  "license": "MIT",
   "type": "wordpress-plugin",
   "authors": [
     {
