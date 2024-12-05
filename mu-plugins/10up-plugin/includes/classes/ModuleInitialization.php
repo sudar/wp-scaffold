@@ -78,7 +78,7 @@ class ModuleInitialization {
 			}
 
 			// Create a new reflection of the class.
-			// @phpstan-ignore-next-line
+			// @phpstan-ignore argument.type
 			$reflection_class = new ReflectionClass( $class );
 
 			// Using reflection, check if the class can be initialized.

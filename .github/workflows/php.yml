@@ -23,8 +23,14 @@ jobs:
           php-version: '8.3'
           tools: composer:v2
 
-      - name: Validate composer.json and composer.lock
+      - name: Validate Root composer.json and composer.lock
         run: composer validate --strict
+
+      - name: Validate Plugin composer.json and composer.lock
+        run: composer validate --strict --working-dir=mu-plugins/10up-plugin
+
+      - name: Validate Theme composer.json and composer.lock
+        run: composer validate --strict --working-dir=themes/10up-theme
 
       - name: Cache Composer packages
         id: composer-cache
@@ -35,8 +41,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
 
-      - name: Install dependencies
+      - name: Install Root dependencies
         run: composer install --prefer-dist --no-progress
+
+      - name: Install Plugin dependencies
+        run: composer install --prefer-dist --no-progress --working-dir=mu-plugins/10up-plugin
+
+      - name: Install Theme dependencies
+        run: composer install --prefer-dist --no-progress --working-dir=themes/10up-theme
 
       - name: Run PHPCS
         run: composer lint
+
+      - name: Run PHPStan
+        run: composer static
