@@ -40,3 +40,6 @@ jobs:
 
       - name: Run PHPCS
         run: composer lint
+
+      - name: Run PHPStan
+        run: composer static
