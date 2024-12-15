@@ -1,8 +1,8 @@
 <?php
 /**
  * Title: Example Pattern
- * Slug: tenup-theme/example
- * Categories: 10up-theme
+ * Slug: nu-theme/example
+ * Categories: nu-theme
  *
  * @package TenUpTheme
  */
