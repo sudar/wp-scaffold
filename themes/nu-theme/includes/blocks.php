@@ -154,7 +154,7 @@ function register_block_pattern_categories() {
 
 	// Register a block pattern category
 	register_block_pattern_category(
-		'10up-theme',
-		[ 'label' => __( '10up Theme', 'tenup-theme' ) ]
+		'nu-theme',
+		[ 'label' => __( 'nu Theme', 'nu-theme' ) ]
 	);
 }

@@ -16,7 +16,7 @@ use TenUpTheme\Utility;
  * @return void
  */
 function setup() {
-	add_action( 'init', 'TenUpTheme\Core\init', apply_filters( 'tenup_theme_init_priority', 8 ) );
+	add_action( 'init', 'TenUpTheme\Core\init', apply_filters( 'nu_theme_init_priority', 8 ) );
 	add_action( 'after_setup_theme', 'TenUpTheme\Core\i18n' );
 	add_action( 'after_setup_theme', 'TenUpTheme\Core\theme_setup' );
 	add_action( 'wp_enqueue_scripts', 'TenUpTheme\Core\scripts' );
@@ -36,7 +36,7 @@ function setup() {
  * @return void
  */
 function init() {
-	do_action( 'tenup_theme_before_init' );
+	do_action( 'nu_theme_before_init' );
 
 	// If the composer.json isn't found, trigger a warning.
 	if ( ! file_exists( TENUP_THEME_PATH . 'composer.json' ) ) {
@@ -45,7 +45,7 @@ function init() {
 			function () {
 				$class = 'notice notice-error';
 				/* translators: %s: the path to the plugin */
-				$message = sprintf( __( 'The composer.json file was not found within %s. No classes will be loaded.', 'tenup-theme' ), TENUP_THEME_PATH );
+				$message = sprintf( __( 'The composer.json file was not found within %s. No classes will be loaded.', 'nu-theme' ), TENUP_THEME_PATH );
 
 				printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 			}
@@ -54,7 +54,7 @@ function init() {
 	}
 
 	ModuleInitialization::instance()->init_classes();
-	do_action( 'tenup_theme_init' );
+	do_action( 'nu_theme_init' );
 }
 
 /**
@@ -67,7 +67,7 @@ function init() {
  * @return void
  */
 function i18n() {
-	load_theme_textdomain( 'tenup-theme', TENUP_THEME_PATH . '/languages' );
+	load_theme_textdomain( 'nu-theme', TENUP_THEME_PATH . '/languages' );
 }
 
 /**
@@ -101,7 +101,7 @@ function theme_setup() {
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'tenup-theme' ),
+			'primary' => esc_html__( 'Primary Menu', 'nu-theme' ),
 		)
 	);
 }
